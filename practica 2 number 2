@@ -1,0 +1,46 @@
+public class Test {
+
+	public static void main(String[] args){
+
+ 
+
+    int n, k=0, m=0;
+    System.out.println("Enter n: ");
+     int n = in.nextInt();
+    double b = new double[n];
+ 
+    for (int i = 0; i < n; i++)
+      {
+      b[i]=rand()%21 -10;
+      if (b[i]<0) k++;
+      System.out.println(b[i]);
+      }    
+    
+    double C = new double[k];
+    
+    for (int i = 0; i < n; i++)      
+    if (b[i]<0) C[m++]=b[i]/2;
+     
+    System.out.println("\nNo sort matrix\n");  
+    for (int i = 0; i < m; i++)
+    System.out.println(C[i]);    
+    
+      for(int i = 0; i < k; ++i) 
+    { 
+        int pos = i; 
+        double tmp = C[i];
+        for(int j = i + 1; j < k; ++j)        
+        if (C[j] < tmp) {pos = j;tmp = C[j];}        
+        C[pos] = C[i]; 
+        C[i] = tmp; 
+    }
+ 
+   System.out.println("\nSort matrix\n"); 
+    for (int i = 0; i < m; i++)
+    System.out.println(C[i]);
+   
+    
+    delete[]b;
+    delete[]C;
+
+}
