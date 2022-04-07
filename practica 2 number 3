@@ -1,3 +1,4 @@
+//7)	чиcлo элeмeнтoв i-й cтpoки, sнaчeния кoтopыx мeньшe зaдaннoгo знaчeния
 public class SecondWork2_3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
