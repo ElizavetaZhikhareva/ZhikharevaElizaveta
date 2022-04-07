@@ -1,36 +1,44 @@
 // 7)	Дaн мaccив x (n) . Пepeпиcaть в мaccив y(n) oтpицaтeльныe элeмeнты мaccивa x дeлeнныe нa 2. (co cжamueм., 
 // бeз nycmыx 5zeмeнmoв внympu). Зaтeм yпopядoчить пo вoзpacтaнию нoвый мaccив.
 
-public class Test {
-	public static void main(String[] args){
-    int n, k=0, m=0;
-    System.out.println("Enter n: ");
-     int n = in.nextInt();
-    double b = new double[n];
-    for (int i = 0; i < n; i++)
-      {
-      b[i]=rand()%21 -10;
-      if (b[i]<0) k++;
-      System.out.println(b[i]);
-      }    
-    double C = new double[k];
-    for (int i = 0; i < n; i++)      
-    if (b[i]<0) C[m++]=b[i]/2; 
-    System.out.println("\nNo sort matrix\n");  
-    for (int i = 0; i < m; i++)
-    System.out.println(C[i]);    
-      for(int i = 0; i < k; ++i) 
-    { 
-        int pos = i; 
-        double tmp = C[i];
-        for(int j = i + 1; j < k; ++j)        
-        if (C[j] < tmp) {pos = j;tmp = C[j];}        
-        C[pos] = C[i]; 
-        C[i] = tmp; 
+public class Zadanie2 {
+    public static void main(String[] args) {
+        int[] arr = {1,2,3,-7,4,-8,-21,7,-9};
+        int[] result = new int[];
+
+        for (int a: arr) {
+            if (a < 0) {
+                a /= 2;
+            }
+
+        for (int i = 0; i < arr.length; i++) {
+        /*Предполагаем, что первый элемент (в каждом
+           подмножестве элементов) является минимальным */
+            int min = arr[i];
+            int min_i = i;
+        /*В оставшейся части подмножества ищем элемент,
+           который меньше предположенного минимума*/
+            for (int j = i+1; j < arr.length; j++) {
+                //Если находим, запоминаем его индекс
+                if (arr[j] < min) {
+                    min = arr[j];
+                    min_i = j;
+                }
+            }
+        /*Если нашелся элемент, меньший, чем на текущей позиции,
+          меняем их местами*/
+            if (i != min_i) {
+                int tmp = arr[i];
+                arr[i] = arr[min_i];
+                arr[min_i] = tmp;
+            }
+        }
+
+        for (int a: arr) {
+            if (a < 0) {
+                a /= 2;
+            }
+            System.out.println(a);
+        }
     }
-   System.out.println("\nSort matrix\n"); 
-    for (int i = 0; i < m; i++)
-    System.out.println(C[i]);
-    delete[]b;
-    delete[]C;
 }
